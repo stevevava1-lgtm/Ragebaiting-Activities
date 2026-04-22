@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ragebait Game - Demon Captcha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-container">
+    <section id="menuScreen" class="menu-screen">
+      <h1 class="menu-title">RAGEBAIT</h1>
+      <p class="subtitle">Very Annoying Levels. Real Rewards.</p>
+      <button id="continueBtn" type="button" class="primary-btn big-btn">Continue</button>
+      <section class="panel menu-panel">
+        <h2>Choose Level</h2>
+        <p class="hint">You can only select levels you already beat.</p>
+        <div>
+          <button id="menuLevel1Btn" type="button" class="secondary-btn">Level 1</button>
+          <button id="menuLevel2Btn" type="button" class="secondary-btn">Level 2</button>
+          <button id="menuLevel3Btn" type="button" class="secondary-btn">Level 3</button>
+          <button id="menuLevel4Btn" type="button" class="secondary-btn">Level 4</button>
+        </div>
+      </section>
+      <button id="openAdvancementsBtn" type="button" class="secondary-btn">Advancements</button>
+      <section id="testersPanel" class="panel testers-panel hidden">
+        <h2>Testers Panel</h2>
+        <p class="hint">Jump to any level.</p>
+        <div>
+          <button id="testerLevel1Btn" type="button" class="secondary-btn">Level 1</button>
+          <button id="testerLevel2Btn" type="button" class="secondary-btn">Level 2</button>
+          <button id="testerLevel3Btn" type="button" class="secondary-btn">Level 3</button>
+          <button id="testerLevel4Btn" type="button" class="secondary-btn">Level 4</button>
+          <button id="testerCompleteAllBtn" type="button" class="secondary-btn">Complete All Levels</button>
+        </div>
+      </section>
+    </section>
+
+    <section id="level1Screen" class="hidden">
+      <h1>The Ragebait Game</h1>
+      <p class="subtitle">Level 1: Demon Captcha</p>
+
+      <section class="panel">
+        <h2>Captcha Font Reference</h2>
+        <p class="hint">Use this key to decode the symbols.</p>
+        <img
+          src="assets/captcha-font-reference.png"
+          alt="Captcha font reference chart"
+          class="font-reference"
+        >
+      </section>
+
+      <section class="panel">
+        <h2>Demon Captcha Challenge</h2>
+        <p>Decode the 6-character captcha and type it exactly.</p>
+        <p class="progress" id="progressText">Progress: 0 / 5 clears</p>
+        <canvas id="captchaCanvas" width="1020" height="170" aria-label="Demon captcha symbols"></canvas>
+
+        <label for="captchaInput">Type the captcha:</label>
+        <input id="captchaInput" type="text" maxlength="6" autocomplete="off" placeholder="Enter 6 characters">
+        <button id="submitBtn" type="button" class="primary-btn">Submit</button>
+        <button id="toMenuFromL1Btn" type="button" class="secondary-btn">Back To Menu</button>
+
+        <p id="feedbackText" class="feedback"></p>
+        <div id="rewardPanel" class="reward-panel hidden" aria-live="polite">
+          <p class="reward-label">Demon Reward Code (Font Mode):</p>
+          <canvas id="rewardCanvas" width="920" height="150" aria-label="Reward code in demon font"></canvas>
+        </div>
+        <button id="nextLevelBtn" type="button" class="primary-btn hidden">Next Level</button>
+      </section>
+    </section>
+
+    <section id="level2Screen" class="hidden">
+      <h1>The Ragebait Game</h1>
+      <p class="subtitle">Level 2: Remember All Rules</p>
+
+      <section id="phasePanel" class="panel phase-panel">
+        <p id="level2Progress" class="progress">Phase 1 / 10</p>
+        <p id="phaseInstruction" class="phase-instruction">Get ready.</p>
+        <p id="phaseTimer" class="phase-timer">2.0s</p>
+        <button id="phaseActionBtn" type="button" class="phase-btn">BIG BUTTON</button>
+        <p id="level2Feedback" class="feedback"></p>
+        <button id="nextLevelFromL2Btn" type="button" class="primary-btn hidden">Next Level</button>
+        <button id="toMenuFromL2Btn" type="button" class="secondary-btn">Back To Menu</button>
+      </section>
+    </section>
+
+    <section id="level3Screen" class="hidden">
+      <h1>The Ragebait Game</h1>
+      <p class="subtitle">Level 3: Exact Essay</p>
+      <section class="panel">
+        <p class="hint">Type this essay exactly as shown. Copy/paste is disabled on this page.</p>
+        <article id="essayPrompt" class="essay-prompt"></article>
+        <label for="essayInput">Your typing:</label>
+        <textarea id="essayInput" class="essay-input" spellcheck="false"></textarea>
+        <div>
+          <button id="essaySubmitBtn" type="button" class="primary-btn">Submit Essay</button>
+          <button id="nextLevelFromL3Btn" type="button" class="primary-btn hidden">Next Level</button>
+          <button id="toMenuFromL3Btn" type="button" class="secondary-btn">Back To Menu</button>
+        </div>
+        <p id="level3Feedback" class="feedback"></p>
+      </section>
+    </section>
+
+    <section id="level4Screen" class="hidden">
+      <h1>The Ragebait Game</h1>
+      <p class="subtitle">Level 4: RNG chaos</p>
+      <section class="panel">
+        <p class="hint">Click once to roll badges. Unlock better badges to upgrade rolls per click.</p>
+        <p id="level4UpgradeText" class="progress">Current button: Blue tier (1 badge per click)</p>
+        <button id="rngRollBtn" type="button" class="phase-btn">ROLL BADGES</button>
+        <p id="level4Feedback" class="feedback"></p>
+        <ul id="badgeList" class="badge-list">
+          <li>Blue badge (1/1): <span id="badgeBlueCount">0</span></li>
+          <li>Yellow badge (1/10): <span id="badgeYellowCount">0</span></li>
+          <li>Green badge (1/50): <span id="badgeGreenCount">0</span></li>
+          <li>Red badge (1/300): <span id="badgeRedCount">0</span></li>
+          <li>Purple badge (1/1000): <span id="badgePurpleCount">0</span></li>
+        </ul>
+        <button id="toMenuFromL4Btn" type="button" class="secondary-btn">Back To Menu</button>
+      </section>
+    </section>
+
+    <section id="secretLevelScreen" class="hidden">
+      <h1>The Ragebait Game</h1>
+      <p class="subtitle">Secret Level: Spell The Longest Word</p>
+      <section class="panel">
+        <p class="hint">Type the longest word that is in a dictionary</p>
+        <label for="secretWordInput">Your answer:</label>
+        <input id="secretWordInput" type="text" autocomplete="off" spellcheck="false" placeholder="Type the full word">
+        <button id="secretWordSubmitBtn" type="button" class="primary-btn">Submit Word</button>
+        <button id="toMenuFromSecretBtn" type="button" class="secondary-btn">Back To Menu</button>
+        <p id="secretLevelFeedback" class="feedback"></p>
+      </section>
+    </section>
+
+    <section id="advancementsScreen" class="hidden">
+      <h1>The Ragebait Game</h1>
+      <p class="subtitle">Advancements</p>
+      <section class="panel">
+        <ul id="advancementList" class="badge-list"></ul>
+        <button id="toMenuFromAdvancementsBtn" type="button" class="secondary-btn">Back To Menu</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

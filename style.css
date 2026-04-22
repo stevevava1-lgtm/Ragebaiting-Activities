@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #101010;
+  color: #f7f7f7;
+}
+
+.game-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
+
+.menu-screen {
+  min-height: 75vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.menu-title {
+  font-size: clamp(3rem, 12vw, 7rem);
+  margin: 0;
+  letter-spacing: 0.08em;
+  color: #ff5e5e;
+  text-shadow: 0 0 22px rgba(255, 50, 50, 0.45);
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2.1rem;
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  color: #ff8a8a;
+  font-weight: bold;
+}
+
+.panel {
+  background: #1a1a1a;
+  border: 1px solid #2f2f2f;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.hint {
+  margin-top: 0;
+  color: #bdbdbd;
+}
+
+.font-reference {
+  width: 100%;
+  max-width: 960px;
+  display: block;
+  border-radius: 8px;
+  border: 2px solid #555;
+}
+
+#captchaCanvas {
+  margin: 8px 0 14px;
+  width: 100%;
+  max-width: 760px;
+  background: #fff;
+  border: 2px solid #4c4c4c;
+  border-radius: 8px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: min(360px, 100%);
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #5a5a5a;
+  background: #242424;
+  color: #fff;
+}
+
+.primary-btn,
+.secondary-btn,
+.phase-btn {
+  margin-left: 8px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.primary-btn {
+  background: #f04545;
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: #ff5b5b;
+}
+
+.secondary-btn {
+  background: #3d3d3d;
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  background: #515151;
+}
+
+.big-btn {
+  font-size: 1.4rem;
+  padding: 14px 34px;
+  margin: 0;
+}
+
+.feedback {
+  min-height: 1.4em;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.progress {
+  color: #ffd3d3;
+}
+
+.hidden {
+  display: none;
+}
+
+.reward-panel {
+  margin-top: 14px;
+  background: #141414;
+  border: 1px solid #2b2b2b;
+  border-radius: 10px;
+  padding: 12px;
+  max-width: 760px;
+}
+
+.reward-label {
+  margin: 0 0 8px;
+  color: #9ee1a4;
+  font-weight: bold;
+}
+
+#rewardCanvas {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border: 2px solid #4c4c4c;
+  border-radius: 8px;
+}
+
+.phase-panel {
+  min-height: 420px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  transition: background-color 0.15s ease;
+}
+
+.phase-instruction {
+  font-size: 1.5rem;
+  margin: 8px 0 6px;
+  font-weight: bold;
+}
+
+.phase-timer {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+  color: #ffe7a8;
+}
+
+.phase-btn {
+  margin: 8px 0;
+  min-width: 280px;
+  min-height: 110px;
+  font-size: 2rem;
+  background: #ededed;
+  color: #111;
+}
+
+.phase-btn:hover {
+  background: #ffffff;
+}
+
+.essay-prompt {
+  white-space: pre-wrap;
+  user-select: none;
+  background: #141414;
+  border: 1px solid #303030;
+  border-radius: 8px;
+  padding: 12px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.essay-input {
+  width: 100%;
+  min-height: 240px;
+  resize: vertical;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #5a5a5a;
+  background: #242424;
+  color: #fff;
+  font: inherit;
+  line-height: 1.45;
+}
+
+.badge-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0;
+  display: grid;
+  gap: 8px;
+}
+
+.testers-panel {
+  min-width: min(560px, 90vw);
+}
+
+.menu-panel {
+  min-width: min(620px, 92vw);
+}
+
+.level-available {
+  background: #2b8f4f;
+}
+
+.level-available:hover {
+  background: #36a95e;
+}
+
+.level-locked {
+  background: #2f4f9e;
+}
+
+.level-locked:hover {
+  background: #3a60bd;
+}
